@@ -8,10 +8,16 @@ public class Main {
                 .tragingAutomatList(new Produkt("Kyvaka", 10));
         System.out.println(vendingtMachine.getProdukts());
 
-        System.out.println("Ввести индекс интересующего напитка");
+        System.out.println("Ввести имя товара");
         HotDrinksVendingMachine hotDrinksVendingMachine = new HotDrinksVendingMachine();
+        vendingtMachine.getProduct(hotDrinksVendingMachine.getName());
+
+
+        System.out.println("Ввести индекс интересующего напитка");
         hotDrinksVendingMachine.hotDrinksVend(vendingtMachine.getProdukts());
         System.out.println(hotDrinksVendingMachine.getDrink());
+
+
 
         System.out.println("-------Коллекция кофе---------");
 

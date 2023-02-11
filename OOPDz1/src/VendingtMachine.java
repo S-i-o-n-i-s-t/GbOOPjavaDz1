@@ -10,4 +10,13 @@ public class VendingtMachine {
     public List<Produkt> getProdukts() {
         return produkts;
     }
+
+    public void getProduct(String name){
+        for (Produkt item: produkts) {
+            if(item.getName().equals(name)){
+                System.out.println(item);
+            }
+        }
+    }
+
 }
