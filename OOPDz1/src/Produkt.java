@@ -13,10 +13,6 @@ public class Produkt {
         return name;
     }
 
-    public int getCost() {
-        return cost;
-    }
-
     @Override
     public String toString() {
         return String.format("Наименование - %s. Цена = %d " ,name, cost);

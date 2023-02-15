@@ -10,7 +10,6 @@ public class HotDrinksVendingMachine implements TradingAutomat{
         drink = (produkts.get(item));
     }
 
-
     public String getName() {
         return name;
     }

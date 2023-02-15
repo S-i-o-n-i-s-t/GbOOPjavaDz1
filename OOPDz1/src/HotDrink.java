@@ -13,4 +13,5 @@ public class HotDrink extends Produkt{
     public String toString() {
         return String.format("Наименование - %s. Цена = %d. Подается при температуре = %d ",name, cost, temperature);
     }
+
 }

@@ -17,8 +17,6 @@ public class Main {
         hotDrinksVendingMachine.hotDrinksVend(vendingtMachine.getProdukts());
         System.out.println(hotDrinksVendingMachine.getDrink());
 
-
-
         System.out.println("-------Коллекция кофе---------");
 
         VendingtMachine hotDirks = new VendingtMachine();
