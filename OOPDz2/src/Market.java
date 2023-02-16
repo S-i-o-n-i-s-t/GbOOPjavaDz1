@@ -1,68 +1,39 @@
 import java.util.ArrayList;
 import java.util.List;
-public class Market implements MarketBehaviour, QueueBehaviour {
-    private final List<Actor> queue;
 
-    public Market(){
-        this.queue = new ArrayList<>();
+public class Market implements Service, Konsol{
+    {
+        System.out.println("Здравствуйте, как ваше имя");
     }
+    private String klient= skan.next();;
+    private List<String> klients = new ArrayList<>();
 
-    @Override
-    public void acceptToMarket(Actor actor) {//M
-        System.out.println(actor.getName() + " пришел в магазин");
-        takeInQueue(actor);
-    }
-
-    @Override
-    public void takeInQueue(Actor actor) {//Q
-        System.out.println(actor.getName() + " встал в очередь");
-        this.queue.add(actor);
-    }
-
-    @Override
-    public void takeOrders() {//Q
-        for(Actor actor: queue){
-            if(!actor.isMakeOrder()){
-                actor.setMakeOrder(true);
-                System.out.println(actor.getName() + " сделал свой заказ");
+   // @Override
+    public void clientRecord() {
+        int prov = 0;
+        for (String item: klients) {
+            if (item.equals(klient)){
+                prov +=1;
             }
         }
-    }
-
-    @Override
-    public void giveOrders() {//Q
-        for(Actor actor: queue){
-            if(actor.isMakeOrder()){
-                actor.setTakeOrder(true);
-                System.out.println(actor.getName() + " получил свой заказ");
-            }
+        if (prov == 0) {
+            klients.add(klient);
         }
     }
 
     @Override
-    public void releaseFromQueue() {//Q
-        List<Actor> releasedActors = new ArrayList<>();
-        for(Actor actor: queue){
-            if(actor.isTakeOrder()){
-                releasedActors.add(actor);
-                System.out.println(actor.getName() + " вышел из очереди и готов уходить");
-            }
-        }
-        releaseFromMarket(releasedActors);
+    public void customerChoice() {
+        System.out.println("Сделайте свой заказ");
     }
 
     @Override
-    public void releaseFromMarket(List<Actor> actors) {//M
-        for(Actor actor: actors){
-            System.out.println(actor.getName() + " вышел из магазина");
-            queue.remove(actor);
-        }
+    public void purchaseHistory() {
+        System.out.println("Досвидания");
+    }
+    public void Market(){
+        clientRecord();
+        customerChoice();
+        purchaseHistory();
     }
 
-    @Override
-    public void update() {//M
-        takeOrders();
-        giveOrders();
-        releaseFromQueue();
-    }
 }
